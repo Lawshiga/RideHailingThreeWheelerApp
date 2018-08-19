@@ -1,0 +1,55 @@
+{
+  "project_info": {
+    "project_number": "133934575838",
+    "firebase_url": "https://ridehailingthreewheelerapp.firebaseio.com",
+    "project_id": "ridehailingthreewheelerapp",
+    "storage_bucket": "ridehailingthreewheelerapp.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:133934575838:android:d3ab48e2d698e27d",
+        "android_client_info": {
+          "package_name": "com.example.macbookpro.ridehailingthreewheelerapp"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "133934575838-nvs6u642d31d419dig04m1l626r2s4pv.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.macbookpro.ridehailingthreewheelerapp",
+            "certificate_hash": "a58565985db9dc8b04703d2f2bc74398eeea8808"
+          }
+        },
+        {
+          "client_id": "133934575838-sq18504it8rduv9t4611dbb86hqgb473.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCXWS8x916HbaAxa2GrA10RsFBTl-lE55w"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 2,
+          "other_platform_oauth_client": [
+            {
+              "client_id": "133934575838-sq18504it8rduv9t4611dbb86hqgb473.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
