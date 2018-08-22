@@ -24,6 +24,8 @@ public class WelcomeActivity extends AppCompatActivity {
             public void onClick(View view) {
                 Intent driverLoginIntent = new Intent(WelcomeActivity.this, DriverLoginActivity.class);
                 startActivity(driverLoginIntent);
+                finish();
+                return;
             }
         });
 
@@ -32,7 +34,10 @@ public class WelcomeActivity extends AppCompatActivity {
             public void onClick(View view) {
                 Intent CustomerLoginIntent = new Intent(WelcomeActivity.this, CustomerLoginActivity.class);
                 startActivity(CustomerLoginIntent);
+                finish();
+                return;
             }
         });
+
     }
 }

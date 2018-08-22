@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/login"
+    android:background="@drawable/orangebg"
     tools:context=".CustomerLoginActivity">
 
     <TextView
@@ -45,7 +45,7 @@
         android:layout_alignParentBottom="true"
         android:layout_centerHorizontal="true"
         android:layout_marginBottom="169dp"
-        android:background="@android:color/holo_orange_light"
+        android:background="#ffe433"
         android:text="Login" />
 
     <TextView
@@ -65,6 +65,6 @@
         android:layout_alignParentBottom="true"
         android:layout_centerHorizontal="true"
         android:layout_marginBottom="69dp"
-        android:background="@android:color/holo_orange_light"
+        android:background="#ffe433"
         android:text="Register" />
 </RelativeLayout>

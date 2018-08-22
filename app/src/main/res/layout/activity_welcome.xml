@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/bg"
+    android:background="@drawable/orangebg"
     tools:context=".WelcomeActivity">
 
     <Button
@@ -14,7 +14,7 @@
         android:layout_alignParentBottom="true"
         android:layout_centerHorizontal="true"
         android:layout_marginBottom="229dp"
-        android:background="@android:color/holo_orange_light"
+        android:background="#ffda33"
         android:text="I'm a Customer"
         android:textSize="16sp"
         android:textStyle="bold" />
@@ -26,7 +26,7 @@
         android:layout_alignParentBottom="true"
         android:layout_centerHorizontal="true"
         android:layout_marginBottom="141dp"
-        android:background="@android:color/holo_orange_light"
+        android:background="?android:attr/colorMultiSelectHighlight"
         android:text="I'm a Driver"
         android:textSize="16sp"
         android:textStyle="bold" />
