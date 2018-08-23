@@ -1,5 +1,6 @@
 package com.example.macbookpro.ridehailingthreewheelerapp;
 
+import android.app.ProgressDialog;
 import android.content.Intent;
 import android.support.annotation.NonNull;
 import android.support.v7.app.AppCompatActivity;
@@ -7,6 +8,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ProgressBar;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -26,6 +28,7 @@ public class CustomerLoginActivity extends AppCompatActivity {
     private Button CustomerRegisterBtn;
     private EditText CustomerEmailEditText;
     private EditText CustomerPasswordEditText;
+    private ProgressDialog loadingBar;
 
     private FirebaseAuth mAuth;
     private FirebaseAuth.AuthStateListener firebaseAuthListener;
@@ -43,6 +46,7 @@ public class CustomerLoginActivity extends AppCompatActivity {
         CustomerPasswordEditText = (EditText)findViewById(R.id.CustomerPasswordEditText);
         CustomerLoginBtn = (Button)findViewById(R.id.CustomerLoginBtn);
         CustomerRegisterBtn = (Button)findViewById(R.id.CustomerRegisterBtn);
+        loadingBar = new ProgressDialog(this);
 
         firebaseAuthListener = new FirebaseAuth.AuthStateListener() {
             @Override
@@ -77,18 +81,23 @@ public class CustomerLoginActivity extends AppCompatActivity {
                 final String DriverEmail = CustomerEmailEditText.getText().toString();
                 final String DriverPassword = CustomerPasswordEditText.getText().toString();
 
+                loadingBar.setTitle("Customer Registration");
+                loadingBar.setMessage("Please wait, you are getting registered to authenticate");
+                loadingBar.show();
+
                 mAuth.createUserWithEmailAndPassword(DriverEmail, DriverPassword).addOnCompleteListener(CustomerLoginActivity.this, new OnCompleteListener<AuthResult>() {
                     @Override
                     public void onComplete(@NonNull Task<AuthResult> task) {
                         if(!task.isSuccessful())
                         {
                             Toast.makeText(CustomerLoginActivity.this, "Sign Up Error", Toast.LENGTH_SHORT).show();
-
+                            loadingBar.dismiss();
                         }
                         else {
                             String user_id = mAuth.getCurrentUser().getUid();
                             DatabaseReference current_user_id = FirebaseDatabase.getInstance().getReference().child("Users").child("Customers").child(user_id);
                             current_user_id.setValue(true);
+                            loadingBar.dismiss();
                         }
                     }
                 });

@@ -1,5 +1,6 @@
 package com.example.macbookpro.ridehailingthreewheelerapp;
 
+import android.app.ProgressDialog;
 import android.content.Intent;
 import android.support.annotation.NonNull;
 import android.support.v7.app.AppCompatActivity;
@@ -29,6 +30,7 @@ public class DriverLoginActivity extends AppCompatActivity {
 
     private FirebaseAuth mAuth;
     private FirebaseAuth.AuthStateListener firebaseAuthListener;
+    private ProgressDialog loadingBar;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -43,6 +45,7 @@ public class DriverLoginActivity extends AppCompatActivity {
         DriverPasswordEditText = (EditText)findViewById(R.id.DriverPasswordEditText);
         DriverLoginBtn = (Button)findViewById(R.id.DriverLoginBtn);
         DriverRegisterBtn = (Button)findViewById(R.id.DriverRegisterBtn);
+        loadingBar = new ProgressDialog(this);
 
         DriverRegisterBtn.setEnabled(false);
         DriverRegisterBtn.setVisibility(View.INVISIBLE);
@@ -77,18 +80,23 @@ public class DriverLoginActivity extends AppCompatActivity {
                 final String DriverEmail = DriverEmailEditText.getText().toString();
                 final String DriverPassword = DriverPasswordEditText.getText().toString();
 
+                loadingBar.setTitle("Driver Registration");
+                loadingBar.setMessage("Please wait, you are getting registered to authenticate");
+                loadingBar.show();
+
                 mAuth.createUserWithEmailAndPassword(DriverEmail, DriverPassword).addOnCompleteListener(DriverLoginActivity.this, new OnCompleteListener<AuthResult>() {
                     @Override
                     public void onComplete(@NonNull Task<AuthResult> task) {
                         if(!task.isSuccessful())
                         {
                             Toast.makeText(DriverLoginActivity.this, "Sign Up Error", Toast.LENGTH_SHORT).show();
-
+                            loadingBar.dismiss();
                         }
                         else {
                             String user_id = mAuth.getCurrentUser().getUid();
                             DatabaseReference current_user_id = FirebaseDatabase.getInstance().getReference().child("Users").child("Drivers").child(user_id);
                             current_user_id.setValue(true);
+                            loadingBar.dismiss();
                         }
                     }
                 });
