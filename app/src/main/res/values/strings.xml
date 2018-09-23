@@ -1,4 +1,16 @@
 <resources>
     <string name="app_name">Jaffna Riders</string>
     <string name="title_activity_driver_map">Map</string>
+    <string name="Logout">Logout</string>
+    <string name="Call">Call Three-Wheeler</string>
+    <string name="logout">logout</string>
+    <string name="Email">Email</string>
+    <string name="Password">Password</string>
+    <string name="Login">Login</string>
+    <string name="account">Don\'t have an account?</string>
+    <string name="Register">Register</string>
+    <string name="Driver_Login">Driver Login</string>
+    <string name="customer">I\'m a Customer</string>
+    <string name="driver">I\'m a Driver</string>
+    <string name="Customer_Login">Customer Login</string>
 </resources>

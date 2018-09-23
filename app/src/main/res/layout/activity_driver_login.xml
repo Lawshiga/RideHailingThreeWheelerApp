@@ -12,10 +12,11 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_alignParentStart="true"
+        android:layout_alignParentLeft="true"
         android:layout_alignParentTop="true"
         android:layout_marginTop="198dp"
         android:ems="10"
-        android:hint="Email"
+        android:hint="@string/Email"
         android:inputType="textEmailAddress" />
 
     <EditText
@@ -23,9 +24,10 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_alignParentStart="true"
+        android:layout_alignParentLeft="true"
         android:layout_centerVertical="true"
         android:ems="10"
-        android:hint="Password"
+        android:hint="@string/Password"
         android:inputType="textPassword" />
 
     <Button
@@ -46,7 +48,7 @@
         android:layout_alignParentBottom="true"
         android:layout_centerHorizontal="true"
         android:layout_marginBottom="160dp"
-        android:text="Don't have an account?"
+        android:text="@string/account"
         android:textColor="@android:color/background_light" />
 
     <Button
@@ -57,7 +59,7 @@
         android:layout_centerHorizontal="true"
         android:layout_marginBottom="87dp"
         android:background="#ffe433"
-        android:text="Register" />
+        android:text="@string/Register" />
 
     <TextView
         android:id="@+id/DriverStatusTextView"
@@ -66,7 +68,7 @@
         android:layout_alignParentTop="true"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="153dp"
-        android:text="Driver Login"
+        android:text="@string/Driver_Login"
         android:textColor="@android:color/background_light"
         android:textSize="16sp" />
 </RelativeLayout>

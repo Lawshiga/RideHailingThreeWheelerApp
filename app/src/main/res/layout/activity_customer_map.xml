@@ -11,7 +11,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:id="@+id/logout"
-        android:text="Logout"
+        android:text="@string/Logout"
         android:layout_gravity="top"
         />
 
@@ -27,7 +27,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_gravity="bottom"
-        android:text="Call Three-Wheeler" />
+        android:text="@string/Call" />
 </FrameLayout>
 
 

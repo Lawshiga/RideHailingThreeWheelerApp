@@ -15,7 +15,7 @@
         android:layout_centerHorizontal="true"
         android:layout_marginBottom="229dp"
         android:background="#ffda33"
-        android:text="I'm a Customer"
+        android:text="@string/customer"
         android:textSize="16sp"
         android:textStyle="bold" />
 
@@ -27,7 +27,7 @@
         android:layout_centerHorizontal="true"
         android:layout_marginBottom="141dp"
         android:background="?android:attr/colorMultiSelectHighlight"
-        android:text="I'm a Driver"
+        android:text="@string/driver"
         android:textSize="16sp"
         android:textStyle="bold" />
 </RelativeLayout>

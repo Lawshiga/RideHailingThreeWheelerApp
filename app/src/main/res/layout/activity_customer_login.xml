@@ -14,7 +14,7 @@
         android:layout_alignParentTop="true"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="153dp"
-        android:text="Customer Login"
+        android:text="@string/Customer_Login"
         android:textColor="@android:color/background_light"
         android:textSize="16sp" />
 
@@ -26,7 +26,7 @@
         android:layout_centerHorizontal="true"
         android:layout_marginTop="201dp"
         android:ems="10"
-        android:hint="Email"
+        android:hint="@string/Email"
         android:inputType="textEmailAddress" />
 
     <EditText
@@ -35,7 +35,7 @@
         android:layout_height="wrap_content"
         android:layout_centerInParent="true"
         android:ems="10"
-        android:hint="Password"
+        android:hint="@string/Password"
         android:inputType="textPassword" />
 
     <Button
@@ -46,7 +46,7 @@
         android:layout_centerHorizontal="true"
         android:layout_marginBottom="169dp"
         android:background="#ffe433"
-        android:text="Login" />
+        android:text="@string/Login" />
 
     <TextView
         android:id="@+id/CustomerLinkTextView"
@@ -55,7 +55,7 @@
         android:layout_alignParentBottom="true"
         android:layout_centerHorizontal="true"
         android:layout_marginBottom="140dp"
-        android:text="Don't have an account?"
+        android:text="@string/account"
         android:textColor="@android:color/background_light" />
 
     <Button
@@ -66,5 +66,5 @@
         android:layout_centerHorizontal="true"
         android:layout_marginBottom="69dp"
         android:background="#ffe433"
-        android:text="Register" />
+        android:text="@string/Register" />
 </RelativeLayout>
