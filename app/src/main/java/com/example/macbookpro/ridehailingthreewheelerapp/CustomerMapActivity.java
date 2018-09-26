@@ -99,6 +99,7 @@ public class CustomerMapActivity extends FragmentActivity implements OnMapReadyC
         });
     }
 
+
     private int radius = 1;
     private boolean driverFound = false;
     private String driverFoundID;
@@ -113,7 +114,7 @@ public class CustomerMapActivity extends FragmentActivity implements OnMapReadyC
             public void onDataEntered(DataSnapshot dataSnapshot, GeoLocation location) {
                 if(!driverFound){
                     driverFound = true;
-                    driverFoundID = dataSnapshot.toString();
+                    driverFoundID = dataSnapshot.getValue().toString();
                     DatabaseReference driverRef = FirebaseDatabase.getInstance().getReference().child("Users").child("Drivers").child(driverFoundID);
                     String customerID = FirebaseAuth.getInstance().getCurrentUser().getUid();
                     HashMap map = new HashMap();
@@ -174,11 +175,11 @@ public class CustomerMapActivity extends FragmentActivity implements OnMapReadyC
                     if(map.get(1) != null){
                         locationLon = Double.parseDouble(map.get(1).toString());
                     }
-                    LatLng driverLatLon = new LatLng(locationLat, locationLon);
+                    LatLng driverLatLng = new LatLng(locationLat, locationLon);
                     if(mDriverMarker != null){
                         mDriverMarker.remove();
                     }
-                    mDriverMarker = mMap.addMarker(new MarkerOptions().position(driverLatLon).title("Your Driver"));
+                    mDriverMarker = mMap.addMarker(new MarkerOptions().position(driverLatLng).title("Your Driver"));
                 }
             }
 
@@ -186,7 +187,7 @@ public class CustomerMapActivity extends FragmentActivity implements OnMapReadyC
             public void onCancelled(DatabaseError databaseError) {
 
             }
-        })
+        });
 
     }
 
