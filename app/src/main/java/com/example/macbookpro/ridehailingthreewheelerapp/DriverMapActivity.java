@@ -134,6 +134,7 @@ public class DriverMapActivity extends FragmentActivity implements OnMapReadyCal
                     }
                     LatLng driverLatLng = new LatLng(locationLat, locationLon);
 
+//size of icon marker needs to be customized
                     pickupMarker = mMap.addMarker(new MarkerOptions().position(driverLatLng).title("Pickup Location").icon(BitmapDescriptorFactory.fromResource(R.mipmap.ic_pickup)));
                 }
             }
