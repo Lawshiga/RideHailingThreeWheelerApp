@@ -13,4 +13,5 @@
     <string name="customer">I\'m a Customer</string>
     <string name="driver">I\'m a Driver</string>
     <string name="Customer_Login">Customer Login</string>
+    <string name="Settings">Settings</string>
 </resources>
