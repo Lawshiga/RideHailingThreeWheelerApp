@@ -33,16 +33,17 @@ import java.io.IOException;
 import java.util.HashMap;
 import java.util.Map;
 
-public class CustomerSettingsActivity extends AppCompatActivity {
+public class DriverSettingsActivity extends AppCompatActivity {
 
-    private EditText mNameField, mPhoneField;
+    private EditText mNameField, mPhoneField, mThreeWheelerField;
     private Button mConfirm, mBack;
     private FirebaseAuth mAuth;
-    private DatabaseReference mCustomerDatabase;
+    private DatabaseReference mDriverDatabase;
     private String userID;
 
     private String mName;
     private String mPhone;
+    private String mThreeWheeler;
     private String mProfileImageUrl;
 
     private ImageView mProfileImage;
@@ -52,10 +53,11 @@ public class CustomerSettingsActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_customer_settings);
+        setContentView(R.layout.activity_driver_settings);
 
         mNameField = (EditText)findViewById(R.id.name);
         mPhoneField = (EditText)findViewById(R.id.phone);
+        mThreeWheelerField = (EditText)findViewById(R.id.three_wheeler);
 
         mProfileImage = (ImageView) findViewById(R.id.profileImage);
 
@@ -65,7 +67,7 @@ public class CustomerSettingsActivity extends AppCompatActivity {
         mAuth = FirebaseAuth.getInstance();
         userID = mAuth.getCurrentUser().getUid();
 
-        mCustomerDatabase = FirebaseDatabase.getInstance().getReference().child("Users").child("Customers").child(userID);
+        mDriverDatabase = FirebaseDatabase.getInstance().getReference().child("Users").child("Drivers").child(userID);
 
         getUserInfo();
 
@@ -95,7 +97,7 @@ public class CustomerSettingsActivity extends AppCompatActivity {
     }
 
     public void getUserInfo(){
-        mCustomerDatabase.addValueEventListener(new ValueEventListener() {
+        mDriverDatabase.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {
                 if(dataSnapshot.exists() && dataSnapshot.getChildrenCount()>0){
@@ -108,6 +110,11 @@ public class CustomerSettingsActivity extends AppCompatActivity {
                     if(map.get("phone") != null){
                         mPhone = map.get("phone").toString();
                         mPhoneField.setText(mPhone);
+                    }
+
+                    if(map.get("three_wheeler") != null){
+                        mThreeWheeler = map.get("three_wheeler").toString();
+                        mThreeWheelerField.setText(mThreeWheeler);
                     }
 
                     if(map.get("profileImageUrl") != null){
@@ -129,11 +136,13 @@ public class CustomerSettingsActivity extends AppCompatActivity {
 
         mName = mNameField.getText().toString();
         mPhone = mPhoneField.getText().toString();
+        mThreeWheeler = mThreeWheelerField.getText().toString();
 
         Map userInfo = new HashMap();
         userInfo.put("name", mName);
         userInfo.put("phone", mPhone);
-        mCustomerDatabase.updateChildren(userInfo);
+        userInfo.put("three_wheeler", mThreeWheeler);
+        mDriverDatabase.updateChildren(userInfo);
 
         if(resultUri != null){
             StorageReference filePath = FirebaseStorage.getInstance().getReference().child("profile_images").child(userID);
@@ -165,7 +174,7 @@ public class CustomerSettingsActivity extends AppCompatActivity {
 
                     Map newImage = new HashMap();
                     newImage.put("profileImageUrl", downloadUrl.toString());
-                    mCustomerDatabase.updateChildren(newImage);
+                    mDriverDatabase.updateChildren(newImage);
                     finish();
                     return;
                 }
