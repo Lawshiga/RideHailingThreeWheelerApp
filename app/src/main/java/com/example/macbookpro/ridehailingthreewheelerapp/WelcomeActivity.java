@@ -19,6 +19,8 @@ public class WelcomeActivity extends AppCompatActivity {
         DriverBtn = (Button)findViewById(R.id.DriverBtn);
         CustomerBtn = (Button)findViewById(R.id.CustomerBtn);
 
+        startService(new Intent(WelcomeActivity.this, onAppKilled.class));
+
         DriverBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
